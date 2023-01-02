@@ -27,4 +27,10 @@ public class AuthorService {
     public Optional<Author> getAuthorById(UUID id){
         return authorDao.getAuthorById(id);
     }
+    public void removeAuthor(UUID id){
+         authorDao.deleteAuthor(id);
+    }
+    public void updateAuthor(UUID id, String address, int phoneNumber, String email){
+        authorDao.updateAuthor(id,address,phoneNumber,email);
+    }
 }

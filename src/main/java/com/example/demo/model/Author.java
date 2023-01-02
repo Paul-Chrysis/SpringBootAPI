@@ -8,9 +8,9 @@ public class Author {
     private final UUID id;
     private final String name;
     private final String surname;
-    private final String address;
-    private final int phoneNumber;
-    private final String email;
+    private String address;
+    private int phoneNumber;
+    private String email;
 
     public UUID getId() {
         return id;
@@ -35,6 +35,13 @@ public class Author {
     public String getEmail() {
         return email;
     }
+
+    public void updateInfo(String newAddress, int newPhoneNumber, String newEmail){
+        this.address = newAddress;
+        this.phoneNumber = newPhoneNumber;
+        this.email = newEmail;
+    }
+
 
 
 

@@ -17,5 +17,6 @@ public interface AuthorDao {
     List<Author> getAuthors();
     Optional<Author> getAuthorById(UUID id);
 
-
+    void deleteAuthor(UUID id);
+    void updateAuthor(UUID id, String address, int phoneNumber, String email);
 }

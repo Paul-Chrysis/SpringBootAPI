@@ -27,4 +27,24 @@ public class FakeAuthorDataAccessService implements AuthorDao{
         return DB.stream().filter(author -> author.getId().equals(id)).findFirst();
     }
 
+    @Override
+    public void deleteAuthor(UUID id) {
+        Optional<Author> authorToDelete = getAuthorById(id);
+        if(authorToDelete.isEmpty()) {
+        }
+        else{
+            DB.remove(authorToDelete.get());
+        }
+    }
+
+    @Override
+    public void updateAuthor(UUID id, String address, int phoneNumber, String email) {
+        Optional<Author> authorToUpdate = getAuthorById(id);
+        if(authorToUpdate.isEmpty()){
+        }else{
+            authorToUpdate.get().updateInfo(address,phoneNumber,email);
+        }
+    }
+
+
 }

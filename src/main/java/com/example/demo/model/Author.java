@@ -1,13 +1,9 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PositiveOrZero;
-
+import jakarta.validation.constraints.*;
 
 import java.util.UUID;
-
 public class Author {
     private final UUID id;
     @NotBlank
@@ -16,8 +12,9 @@ public class Author {
     private final String surname;
     @NotBlank
     private String address;
+
     @PositiveOrZero
-    private int phoneNumber;
+    private Long phoneNumber;
     @NotBlank @Email
     private String email;
 
@@ -37,7 +34,7 @@ public class Author {
         return address;
     }
 
-    public int getphoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -45,7 +42,7 @@ public class Author {
         return email;
     }
 
-    public void updateInfo(String newAddress, int newPhoneNumber, String newEmail){
+    public void updateInfo(String newAddress, long newPhoneNumber, String newEmail){
         this.address = newAddress;
         this.phoneNumber = newPhoneNumber;
         this.email = newEmail;
@@ -57,7 +54,7 @@ public class Author {
                   @JsonProperty("name") String name,
                   @JsonProperty("surname") String surname,
                   @JsonProperty("address") String address,
-                  @JsonProperty("phoneNumber") int phoneNumber,
+                  @JsonProperty("phoneNumber") long phoneNumber,
                   @JsonProperty("email") String email) {
         this.id = id;
         this.name = name;

@@ -1,15 +1,24 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
+
 
 import java.util.UUID;
 
 public class Author {
     private final UUID id;
+    @NotBlank
     private final String name;
+    @NotBlank
     private final String surname;
+    @NotBlank
     private String address;
+    @PositiveOrZero
     private int phoneNumber;
+    @NotBlank @Email
     private String email;
 
     public UUID getId() {
@@ -41,8 +50,6 @@ public class Author {
         this.phoneNumber = newPhoneNumber;
         this.email = newEmail;
     }
-
-
 
 
 

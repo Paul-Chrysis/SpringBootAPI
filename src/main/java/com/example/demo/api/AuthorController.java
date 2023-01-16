@@ -17,7 +17,7 @@ import java.util.UUID;
 @RestController
 public class AuthorController {
     private final AuthorService authorService;
-    @Autowired
+    //@Autowired
     public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
     }

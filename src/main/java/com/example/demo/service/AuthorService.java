@@ -30,7 +30,7 @@ public class AuthorService {
     public void removeAuthor(UUID id){
          authorDao.deleteAuthor(id);
     }
-    public void updateAuthor(UUID id, String address, int phoneNumber, String email){
+    public void updateAuthor(UUID id, String address, String phoneNumber, String email){
         authorDao.updateAuthor(id,address,phoneNumber,email);
     }
 }

@@ -13,8 +13,10 @@ public class Author {
     @NotBlank
     private String address;
 
-    @PositiveOrZero
-    private Long phoneNumber;
+    @NotBlank
+    @Size(min = 10,max = 10)
+    @Positive
+    private String phoneNumber;
     @NotBlank @Email
     private String email;
 
@@ -34,7 +36,7 @@ public class Author {
         return address;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -42,7 +44,7 @@ public class Author {
         return email;
     }
 
-    public void updateInfo(String newAddress, long newPhoneNumber, String newEmail){
+    public void updateInfo(String newAddress, String newPhoneNumber, String newEmail){
         this.address = newAddress;
         this.phoneNumber = newPhoneNumber;
         this.email = newEmail;
@@ -54,7 +56,7 @@ public class Author {
                   @JsonProperty("name") String name,
                   @JsonProperty("surname") String surname,
                   @JsonProperty("address") String address,
-                  @JsonProperty("phoneNumber") long phoneNumber,
+                  @JsonProperty("phoneNumber") String phoneNumber,
                   @JsonProperty("email") String email) {
         this.id = id;
         this.name = name;

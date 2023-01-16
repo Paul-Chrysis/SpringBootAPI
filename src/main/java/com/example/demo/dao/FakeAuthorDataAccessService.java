@@ -48,7 +48,7 @@ public class FakeAuthorDataAccessService implements AuthorDao{
     }
 
     @Override
-    public void updateAuthor(UUID id, String address, long phoneNumber, String email) {
+    public void updateAuthor(UUID id, String address, String phoneNumber, String email) {
         Optional<Author> authorToUpdate = getAuthorById(id);
         authorToUpdate.ifPresent(author -> author.updateInfo(address, phoneNumber, email));
     }

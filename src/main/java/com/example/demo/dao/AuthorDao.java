@@ -18,5 +18,5 @@ public interface AuthorDao {
     Optional<Author> getAuthorById(UUID id);
 
     void deleteAuthor(UUID id);
-    void updateAuthor(UUID id, String address, long phoneNumber, String email);
+    void updateAuthor(UUID id, String address, String phoneNumber, String email);
 }

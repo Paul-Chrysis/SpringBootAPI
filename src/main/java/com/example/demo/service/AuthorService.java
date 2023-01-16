@@ -13,7 +13,6 @@ import java.util.UUID;
 @Service
 public class AuthorService {
     private final AuthorDao authorDao;
-    @Autowired
     public AuthorService(@Qualifier("fakeDao") AuthorDao authorDao){
         this.authorDao =authorDao;
     }

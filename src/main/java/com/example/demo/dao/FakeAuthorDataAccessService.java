@@ -4,16 +4,19 @@ import com.example.demo.exception.AuthorAlreadySignedUp;
 import com.example.demo.exception.AuthorEmailAlreadyInUse;
 import com.example.demo.exception.AuthorNotFoundException;
 import com.example.demo.model.Author;
+import com.example.demo.model.Book;
 import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository("fakeDao")
+@Repository("fakeAuthorDao")
 public class FakeAuthorDataAccessService implements AuthorDao {
-    private static final List<Author> DB = new ArrayList<>();
+    private static final Database DATABASE = Database.getInstance();
+
+    private static final List<Author> DB = DATABASE.getAuthorsDB();
+    private static final List<Book> DBBooks = DATABASE.getBookDB();
+
 
     @Override
     public UUID insertAuthor(UUID id, Author author) {
@@ -63,5 +66,11 @@ public class FakeAuthorDataAccessService implements AuthorDao {
         Optional<Author> authorToUpdate = getAuthorById(id);
         authorToUpdate.ifPresent(author -> author.updateInfo(address, phoneNumber, email));
     }
+
+    @Override
+    public List<Book> getBookListOfAuthorById(UUID authorId) {
+        return DBBooks.stream().filter( id -> id.getAuthorId().equals(authorId)).toList();
+    }
+
 
 }

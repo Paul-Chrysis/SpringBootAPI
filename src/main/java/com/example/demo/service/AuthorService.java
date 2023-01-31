@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dao.AuthorDao;
 import com.example.demo.model.Author;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.model.Book;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.UUID;
 @Service
 public class AuthorService {
     private final AuthorDao authorDao;
-    public AuthorService(@Qualifier("fakeDao") AuthorDao authorDao){
+    public AuthorService(@Qualifier("fakeAuthorDao") AuthorDao authorDao){
         this.authorDao =authorDao;
     }
 
@@ -31,5 +31,8 @@ public class AuthorService {
     }
     public void updateAuthor(UUID id, String address, String phoneNumber, String email){
         authorDao.updateAuthor(id,address,phoneNumber,email);
+    }
+    public List<Book> getBooksOfAuthorById(UUID authorId){
+        return authorDao.getBookListOfAuthorById(authorId);
     }
 }

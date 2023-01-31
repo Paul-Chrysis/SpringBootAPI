@@ -1,7 +1,10 @@
 package com.example.demo.exception;
 
-import java.util.UUID;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.UUID;
+@ResponseStatus(HttpStatus.BAD_REQUEST)
 public class AuthorEmailAlreadyInUse extends RuntimeException {
     private final UUID id;
     private final String email;

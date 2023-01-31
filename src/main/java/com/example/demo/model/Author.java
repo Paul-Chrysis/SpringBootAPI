@@ -1,7 +1,10 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 import java.util.UUID;
 public class Author {
@@ -12,7 +15,6 @@ public class Author {
     private final String surname;
     @NotBlank
     private String address;
-
     @NotBlank
     @Size(min = 10,max = 10)
     @Positive
@@ -50,8 +52,6 @@ public class Author {
         this.email = newEmail;
     }
 
-
-
     public Author(@JsonProperty("id") UUID id,
                   @JsonProperty("name") String name,
                   @JsonProperty("surname") String surname,
@@ -66,6 +66,5 @@ public class Author {
         this.email = email;
 
     }
-
 
 }

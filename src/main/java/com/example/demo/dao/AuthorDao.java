@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.model.Author;
+import com.example.demo.model.Book;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,4 +23,6 @@ public interface AuthorDao {
     void deleteAuthor(UUID id);
 
     void updateAuthor(UUID id, String address, String phoneNumber, String email);
+
+    List<Book> getBookListOfAuthorById(UUID authorId);
 }

@@ -3,12 +3,13 @@ package com.example.demo.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
-public record AuthorInfo(@NotBlank String address, @NotNull String phoneNumber,@NotBlank @Email String email) {
-    public AuthorInfo(@JsonProperty("address") String address,
-                      @JsonProperty("phoneNumber") String phoneNumber,
-                      @JsonProperty("email") String email) {
+public record AuthorInfo(String address, String phoneNumber, String email) {
+    public AuthorInfo(@JsonProperty("address") @NotBlank String address,
+                      @JsonProperty("phoneNumber") @NotBlank @Size(min = 10,max = 10) @Positive String phoneNumber,
+                      @JsonProperty("email") @NotBlank @Email String email) {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
